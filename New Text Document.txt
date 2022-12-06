@@ -1,0 +1,26 @@
+# Python Program to find the possibility of N no. of cuts in a cake.
+n = int(input("Enter the value of N: "))
+
+# Checking the first condition.
+print("Cut the cake into N equal pieces. -", end=" ")
+print("Possible" if 360 % n == 0 else "Not Possible")
+
+# Checking the second condition.
+# considering the pieces are having an appropriate angle of more than or equal to 1 degree
+print("Cut the cake into N pieces of any size. -", end=" ")
+print("Possible" if n <= 360 else "Not Possible")
+
+
+# Checking the third condition.
+s = 0
+ang = 1
+while s <= 360:
+    s += ang
+    ang += 1
+    if s > 360:
+        ang -= 2
+# if N no. of pieces should be cut such that no two them are equal, then we can get a maximum of 26 pieces,
+# considering the smallest piece is having an appropriate angle of 1 degree
+
+print("Cut the cake into N pieces such that no two of them are equal. -", end=" ")
+print("Possible" if n <= ang else "Not Possible")
